@@ -12,7 +12,6 @@ npm install
 npm install -g bower
 npm install -g gulp
 npm install -g browserify
-npm install -g napa
 
 #get bower dependencies
 bower install
@@ -22,3 +21,5 @@ bower install
 #wire angular dependencies with browserify and gulp
 gulp browserify
 ```
+
+Layout ideas from [http://benclinkinbeard.com/talks/2014/ng-conf/](http://benclinkinbeard.com/talks/2014/ng-conf/)
