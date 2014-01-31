@@ -1,24 +1,13 @@
-require('angular/angular');
-require('angular-route/angular-route');
-require('./bootstrap');
-var mainctrl = require('./mainctrl');
+'use strict';
+
+require('angular');
+require('angular-route');
 
 //Declare app level module and dependencies
 angular.module('sampleApp', [
-    'ngRoute'
+        'ngRoute',
+        require('./user').name
     ])
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl: '/app/templates/home.html', 
-                controller: 'MainCtrl'
-            })
-            .otherwise( 
-                {
-                    redirectTo: '/'
-                });
-    }]);
-
-//Load controller(s)
-angular.module('sampleApp').controller('MainCtrl', ['$scope', mainctrl.MainController]);    
-   
+    .controller('MainCtrl', ['$scope', require('./mainctrl')])
+    .config(['$routeProvider', require('./common/routes')])
+    .config(['$routeProvider', require('./user/routes')]);
